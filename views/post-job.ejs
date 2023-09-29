@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post A Job</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Post job start -->
+    <section class="post-job-form">
+        <div class="container">
+            <div class="post-job-form-wrapper">
+                
+                <div class="popup">
+                    <form>
+                        <div class="label-wrapper">
+                            <div class="label-item left">
+                                <label class="labels">First Name</label>
+                                <input type="text" class="names" id="fname" name="fname" placeholder="Enter your name">
+                            </div>
+                            <div class="label-item right">
+                                <label class="labels">Last Name</label>
+                                <input type="text" class="names" id="lname" name="lname" placeholder="Enter your last name">
+                            </div>
+                        </div>
+                        <div class="fields-wrapper">
+                            <div class="list item-one">
+                                <label class="inner-labels">Departments</label>
+                            <select id="deparments">
+                                <option value="IT">IT</option>
+                                <option value="Operation">Operation</option>
+                                <option value="Key Accounts">Key Accounts</option>
+                                <option value="HR">HR</option>
+                                <option value="Design">Design</option>
+                                <option value="SEO">SEO</option>
+                            </select>
+                            </div>
+                            <div class="list item-two">
+                            <label class="inner-labels">Designation</label>
+                            <select id="position-title">
+                                <option value="Internee">Internee</option>
+                                <option value="MTO">MTO</option>
+                                <option value="Web Executive">Web Executive</option>
+                                <option value="Junior Developer">Junior Developer</option>
+                                <option value="Senior Developer">Design</option>
+                                <option value="HOD">HOD</option>
+                                <option value="CTO">CTO</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Director">Director</option>
+                            </select>
+                            </div>
+                            <div class="list item-three">
+                            <label class="inner-labels">Experience</label>
+                            <select id="position-experience">
+                                <option value="0">0</option>
+                                <option value="1 year">1 year</option>
+                                <option value="2 years">2 years</option>
+                                <option value="3 years">3 years</option>
+                                <option value="4 years">4 years</option>
+                                <option value="more than 4 years">more than 4 years</option>
+                            </select>
+                            </div>
+                            <div class="list item-four">
+                            <label class="inner-labels">Position type</label>
+                            <select id="position-type">
+                                <option value="Temporary">Temporary</option>
+                                <option value="Permanent">Permanent</option>
+                            </select>
+                            </div>
+                            <div class="list item-five">
+                            <label class="inner-labels">Working hours</label>
+                            <select id="working-hours">
+                                <option value="Full Time">Full Time</option>
+                                <option value="Part Time">Part Time</option>
+                            </select>
+                            </div>
+                        </div>
+                        <label class="inner-labels">Description</label>
+                        <textarea class="job-post-description"></textarea>
+                    </form>
+                    <button class="submit-post-job-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const searchInput = document.querySelector('.search-jobs');
+        const departmentSelect = document.getElementById('departments');
+        const departments = Array.from(departmentSelect.options);
+
+        // Add an event listener to the search input
+        searchInput.addEventListener('input', filterDepartments);
+
+        function filterDepartments() {
+            const query = searchInput.value.toLowerCase();
+
+            departments.forEach(option => {
+                const optionText = option.textContent.toLowerCase();
+                if (optionText.includes(query)) {
+                    option.style.display = 'block'; // Show the department option
+                } else {
+                    option.style.display = 'none'; // Hide the department option
+                }
+            });
+        }
+    </script>
+    <!-- Post job end -->
+    <!-- <script src="/js/script.js"></script> -->
+</body>
+</html>
